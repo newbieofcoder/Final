@@ -37,12 +37,14 @@ const Banner = () => {
 
   // Add effect to update scrollX when currentIndex changes
   useEffect(() => {
-    Animated.timing(scrollX, {
-      toValue: currentIndex * width,
-      duration: 300,
-      useNativeDriver: true,
-    }).start();
-  }, [currentIndex]);
+    if (images.length > 1) {
+      Animated.timing(scrollX, {
+        toValue: currentIndex * width,
+        duration: 300,
+        useNativeDriver: true,
+      }).start();
+    }
+  }, [currentIndex, images.length]);
 
   const requestStoragePermission = async () => {
     if (Platform.OS === "android") {
@@ -107,29 +109,33 @@ const Banner = () => {
     <View style={styles.container}>
       {images.length > 0 ? (
         <TouchableOpacity onPress={pickImage} style={styles.sliderContainer}>
-          <Animated.View
-            style={[
-              styles.slider,
-              {
-                transform: [
-                  {
-                    translateX: scrollX.interpolate({
-                      inputRange: images.map((_, i) => i * width),
-                      outputRange: images.map((_, i) => -i * width),
-                    }),
-                  },
-                ],
-              },
-            ]}
-          >
-            {images.map((image, index) => (
-              <Image
-                key={index}
-                source={{ uri: image }}
-                style={styles.banner}
-              />
-            ))}
-          </Animated.View>
+          {images.length > 1 ? (
+            <Animated.View
+              style={[
+                styles.slider,
+                {
+                  transform: [
+                    {
+                      translateX: scrollX.interpolate({
+                        inputRange: images.map((_, i) => i * width),
+                        outputRange: images.map((_, i) => -i * width),
+                      }),
+                    },
+                  ],
+                },
+              ]}
+            >
+              {images.map((image, index) => (
+                <Image
+                  key={index}
+                  source={{ uri: image }}
+                  style={styles.banner}
+                />
+              ))}
+            </Animated.View>
+          ) : (
+            <Image source={{ uri: images[0] }} style={styles.banner} />
+          )}
           {images.length > 1 && (
             <View style={styles.indicatorContainer}>
               {images.map((_, index) => (
