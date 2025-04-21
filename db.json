@@ -1,0 +1,20 @@
+{
+  "XeMay": [
+    {
+      "id": "1",
+      "ten_xe_ph56584": "Honda Wave Alpha",
+      "mau_sac_ph56584": "Đỏ",
+      "gia_ban_ph56584": 18500000,
+      "mo_ta_ph56584": "Xe số phổ thông tiết kiệm nhiên liệu\n",
+      "hinh_anh_ph56584": "https://hondath.vn/storage/2024/06/Honda-wave-alpha-110-2025-1.1.jpg"
+    },
+    {
+      "id": "2",
+      "ten_xe_ph56584": "Yamaha Exciter",
+      "mau_sac_ph56584": "Xanh",
+      "gia_ban_ph56584": 50000000,
+      "mo_ta_ph56584": "Xe côn tay thể thaooo",
+      "hinh_anh_ph56584": "https://yamaha-motor.com.vn/wp/wp-content/uploads/2023/09/Exciter-155-VVA-Black-Gold-ABS_004-768x645.png"
+    }
+  ]
+}
